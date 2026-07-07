@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--color-background-dynamic);
+  --color-surface: var(--color-surface-dynamic);
+  --color-surface-hover: var(--color-surface-hover-dynamic);
+  --color-primary: var(--color-primary-dynamic);
+  --color-accent: var(--color-accent-dynamic);
+  --color-border: var(--color-border-dynamic);
+  --shadow-glow: 0 0 15px var(--color-accent-glow);
+}
+
+@layer base {
+  :root {
+    --color-background-dynamic: #bae6fd;
+    --color-surface-dynamic: #ffffff;
+    --color-surface-hover-dynamic: #7dd3fc;
+    --color-primary-dynamic: #1d4ed8;
+    --color-accent-dynamic: #3b82f6;
+    --color-border-dynamic: #bfdbfe;
+    --color-accent-glow: rgba(59, 130, 246, 0.2);
+  }
+
+  .dark {
+    --color-background-dynamic: #020617;
+    --color-surface-dynamic: #1e293b;
+    --color-surface-hover-dynamic: #334155;
+    --color-primary-dynamic: #38bdf8;
+    --color-accent-dynamic: #0ea5e9;
+    --color-border-dynamic: #334155;
+    --color-accent-glow: rgba(14, 165, 233, 0.2);
+
+    /* Override Tailwind's default blues when in dark mode to seamlessly adapt the UI */
+    --color-blue-50: #0f172a;
+    --color-blue-100: #1e293b;
+    --color-blue-200: #334155;
+    --color-blue-300: #475569;
+    --color-blue-400: #94a3b8;
+    --color-blue-500: #0ea5e9;
+    --color-blue-600: #38bdf8;
+    --color-blue-700: #e2e8f0;
+    --color-blue-800: #f1f5f9;
+    --color-blue-900: #f8fafc;
+    --color-blue-950: #020617;
+    --color-white: #1e293b;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-blue-900);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes wireframe-spin {
+  from { transform: translate(-50%, -50%) rotateX(60deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(60deg) rotateZ(360deg); }
+}
+
+/* 3D Wireframe Cube styles */
+.wireframe-cube {
+  transform-style: preserve-3d;
+  animation: rotate-cube 15s linear infinite;
+}
+
+.wireframe-face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.wireframe-face:nth-child(1) { transform: translateZ(50px); }
+.wireframe-face:nth-child(2) { transform: rotateY(180deg) translateZ(50px); }
+.wireframe-face:nth-child(3) { transform: rotateY(90deg) translateZ(50px); }
+.wireframe-face:nth-child(4) { transform: rotateY(-90deg) translateZ(50px); }
+.wireframe-face:nth-child(5) { transform: rotateX(90deg) translateZ(50px); }
+.wireframe-face:nth-child(6) { transform: rotateX(-90deg) translateZ(50px); }
+
+@keyframes rotate-cube {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}

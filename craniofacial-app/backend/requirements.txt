@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+python-multipart
+# Add your AI dependencies below (e.g. torch, torchvision, trimesh, pydicom)

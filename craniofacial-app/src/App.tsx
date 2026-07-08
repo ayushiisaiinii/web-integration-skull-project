@@ -1,8 +1,10 @@
 import { Header } from './components/Header';
+import { Sidebar } from './components/Sidebar';
 import { ModelSelectionGrid } from './components/ModelSelectionGrid';
 import { UploadZone } from './components/UploadZone';
 import { ProcessingOverlay } from './components/ProcessingOverlay';
 import { ResultsWorkspace } from './components/ResultsWorkspace';
+import { Footer } from './components/Footer';
 import { useAppFlow } from './hooks/useAppFlow';
 import { handleReconstructionSubmit } from './services/api';
 import { useState, useEffect } from 'react';
@@ -49,11 +51,24 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-slate-800 dark:text-slate-200 font-sans selection:bg-accent/30 selection:text-accent overflow-x-hidden transition-colors duration-300">
-      <Header onModelSelect={selectModel} onViewResults={jumpToResults} onToggleTheme={() => setIsDark(!isDark)} isDark={isDark} />
+    <div className="h-screen flex flex-col bg-background text-slate-800 dark:text-slate-200 font-sans selection:bg-accent/30 selection:text-accent overflow-hidden transition-colors duration-300">
       
-      <main className="w-full h-full relative">
-        {currentStep === 'select' && (
+      {/* Top Header (Full Width) */}
+      <Header />
+
+      <div className="flex-1 flex overflow-hidden">
+        {/* Fixed Left Sidebar */}
+        <Sidebar 
+          onModelSelect={selectModel} 
+          onViewResults={jumpToResults} 
+          onToggleTheme={() => setIsDark(!isDark)} 
+          isDark={isDark} 
+        />
+
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+          <main className="w-full relative flex-1 flex flex-col">
+            {currentStep === 'select' && (
           <ModelSelectionGrid onSelect={selectModel} />
         )}
         
@@ -78,9 +93,13 @@ function App() {
             onReset={resetFlow} 
           />
         )}
-      </main>
+        </main>
+
+        {currentStep === 'select' && <Footer />}
+      </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default App;

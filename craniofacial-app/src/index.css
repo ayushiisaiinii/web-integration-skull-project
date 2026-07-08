@@ -7,6 +7,8 @@
   --color-primary: var(--color-primary-dynamic);
   --color-accent: var(--color-accent-dynamic);
   --color-border: var(--color-border-dynamic);
+  --color-img-bg: var(--color-img-bg-dynamic);
+  --color-img-bg-hover: var(--color-img-bg-hover-dynamic);
   --shadow-glow: 0 0 15px var(--color-accent-glow);
 }
 
@@ -18,6 +20,8 @@
     --color-primary-dynamic: #1d4ed8;
     --color-accent-dynamic: #3b82f6;
     --color-border-dynamic: #bfdbfe;
+    --color-img-bg-dynamic: #e0f2fe;
+    --color-img-bg-hover-dynamic: #bae6fd;
     --color-accent-glow: rgba(59, 130, 246, 0.2);
   }
 
@@ -28,6 +32,8 @@
     --color-primary-dynamic: #38bdf8;
     --color-accent-dynamic: #0ea5e9;
     --color-border-dynamic: #334155;
+    --color-img-bg-dynamic: #cbd5e1; /* slate-300 so bone is visible */
+    --color-img-bg-hover-dynamic: #94a3b8; /* slate-400 */
     --color-accent-glow: rgba(14, 165, 233, 0.2);
 
     /* Override Tailwind's default blues when in dark mode to seamlessly adapt the UI */
@@ -41,7 +47,7 @@
     --color-blue-700: #e2e8f0;
     --color-blue-800: #f1f5f9;
     --color-blue-900: #f8fafc;
-    --color-blue-950: #020617;
+    --color-blue-950: #ffffff;
     --color-white: #1e293b;
   }
 

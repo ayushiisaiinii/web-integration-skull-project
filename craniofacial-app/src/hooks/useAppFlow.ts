@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export type ModelType = 'cranium' | 'mandible' | 'maxilla';
+export type ModelType = 'cranium' | 'mandible' | 'maxilla' | 'mandible-classification';
 export type Step = 'select' | 'upload' | 'processing' | 'results';
 
 export const useAppFlow = () => {

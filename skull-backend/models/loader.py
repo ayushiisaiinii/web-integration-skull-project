@@ -10,6 +10,8 @@ def get_predictor(model_name: str):
         from models.maxilla.predictor import predict
     elif model_name == "mandible":
         from models.mandible.predictor import predict
+    elif model_name == "mandible_classification":
+        from models.mandible_classification.predictor import predict
     else:
         raise ValueError(f"Unknown model: {model_name}")
 

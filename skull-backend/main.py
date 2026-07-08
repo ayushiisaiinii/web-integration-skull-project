@@ -198,7 +198,8 @@ async def api_reconstruct(
     model_map = {
         "cranium": "cranial",
         "maxilla": "maxilla",
-        "mandible": "mandible"
+        "mandible": "mandible",
+        "mandible-classification": "mandible_classification"
     }
 
     backend_model = model_map.get(model_type)
